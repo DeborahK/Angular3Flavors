@@ -48,3 +48,4 @@
         $httpBackend.whenGET(/\.html$/).passThrough();
     });
 }());
+//# sourceMappingURL=movieResourceMock.js.map

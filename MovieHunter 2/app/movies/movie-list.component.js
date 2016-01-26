@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1) {
+System.register(['angular2/core', '../common/movieFilter.pipe'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +8,15 @@ System.register(['angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, movieFilter_pipe_1;
     var MovieListComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (movieFilter_pipe_1_1) {
+                movieFilter_pipe_1 = movieFilter_pipe_1_1;
             }],
         execute: function() {
             // Interface defining the properties and methods
@@ -41,6 +44,27 @@ System.register(['angular2/core'], function(exports_1) {
                             approvalRating: .97
                         },
                         {
+                            director: "Peter Jackson",
+                            imageurl: "http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Two-Towers_small.jpg",
+                            movieId: 2,
+                            mpaa: "pg-13",
+                            releaseDate: "2002-12-18T00:00:00",
+                            title: "The Lord of the Rings: The Two Towers",
+                            price: 14.95,
+                            starRating: 4.6,
+                            approvalRating: .94
+                        },
+                        {
+                            director: "Peter Jackson",
+                            imageurl: "http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Return-Of-The-King_small.jpg",
+                            movieId: 3,
+                            mpaa: "pg-13",
+                            releaseDate: "2003-12-17T00:00:00",
+                            title: "The Lord of the Rings: The Return of the King",
+                            price: 15.95,
+                            starRating: 4.98,
+                            approvalRating: .9995 },
+                        {
                             director: "Fred Wolf",
                             imageurl: null,
                             movieId: 4,
@@ -56,11 +80,15 @@ System.register(['angular2/core'], function(exports_1) {
                 MovieListComponent.prototype.toggleImage = function () {
                     this.showImage = !this.showImage;
                 };
+                MovieListComponent.prototype.convertToDate = function (dateString) {
+                    return new Date(dateString);
+                };
                 MovieListComponent = __decorate([
                     core_1.Component({
                         selector: 'mh-movie-list',
                         templateUrl: 'app/movies/movieListView.html',
-                        styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css']
+                        styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css'],
+                        pipes: [movieFilter_pipe_1.MovieFilterPipe]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MovieListComponent);
@@ -70,3 +98,4 @@ System.register(['angular2/core'], function(exports_1) {
         }
     }
 });
+//# sourceMappingURL=movie-list.component.js.map

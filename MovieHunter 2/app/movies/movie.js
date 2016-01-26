@@ -16,3 +16,4 @@ var app;
         domain.Movie = Movie;
     })(domain = app.domain || (app.domain = {}));
 })(app || (app = {}));
+//# sourceMappingURL=movie.js.map

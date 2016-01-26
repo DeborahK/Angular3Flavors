@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {MovieFilterPipe} from '../common/movieFilter.pipe'
 
 // Interface defining the properties and methods
 // that the controller class intents to provide
@@ -13,7 +14,8 @@ import {Component} from 'angular2/core';
 @Component({
     selector: 'mh-movie-list',
     templateUrl: 'app/movies/movieListView.html',
-    styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css']
+    styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css'],
+    pipes: [MovieFilterPipe]
 })
 export class MovieListComponent {
     public showImage: boolean;
@@ -33,6 +35,28 @@ export class MovieListComponent {
                 approvalRating: .97
             },
             {
+                director: "Peter Jackson",
+                imageurl: "http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Two-Towers_small.jpg",
+                movieId: 2,
+                mpaa: "pg-13",
+                releaseDate: "2002-12-18T00:00:00",
+                title: "The Lord of the Rings: The Two Towers",
+                price: 14.95,
+                starRating: 4.6,
+                approvalRating: .94
+            },
+            {
+                director: "Peter Jackson",
+                imageurl: "http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Return-Of-The-King_small.jpg",
+                movieId: 3,
+                mpaa: "pg-13",
+                releaseDate: "2003-12-17T00:00:00",
+                title: "The Lord of the Rings: The Return of the King",
+                price: 15.95,
+                starRating: 4.98,
+                approvalRating: .9995           },
+
+            {
                 director: "Fred Wolf",
                 imageurl: null,
                 movieId: 4,
@@ -48,5 +72,9 @@ export class MovieListComponent {
 
     toggleImage(): void {
         this.showImage = !this.showImage;
+    }
+
+    convertToDate(dateString): Date {
+        return new Date(dateString);
     }
 }

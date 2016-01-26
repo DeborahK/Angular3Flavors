@@ -38,3 +38,4 @@ System.register(['angular2/core', './movies/movie-list.component'], function(exp
         }
     }
 });
+//# sourceMappingURL=app.component.js.map
