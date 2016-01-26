@@ -1,0 +1,46 @@
+﻿<!-- Filter the Title   -->
+<div class="row">
+    <div class="col-md-2">Filter by:</div>
+    <div class="col-md-4">
+        <input type="text" #listFilter (keyup)="0" />
+    </div>
+</div>
+
+<div class="row" [hidden]="!listFilter.value">
+    <h3>Movies filtered by: {{listFilter.value}}</h3>
+</div>
+
+<div class="table-responsive">
+    <table class="table" *ngIf="movies.length">
+        <thead>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-info" (click)="toggleImage()">
+                        {{showImage ? "Hide" : "Show"}} Poster
+                    </button>
+                </td>
+                <td>Title</td>
+                <td>Director</td>
+                <td>Release Date</td>
+                <td>Rating</td>
+                <td>Price</td>
+                <td>Star rating (out of 5)<td>
+                <td>Approval rating (out of 100%)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" #movie of movies | slice:1:2">
+                <td>
+                    <img [hidden]="!showImage || !movie.imageurl" style="width:50px;margin:2px" [src]="movie.imageurl" [title]="movie.title">
+                </td>
+                <td>{{ movie.title}}</td>
+                <td>{{ movie.director }}</td>
+                <td>{{ movie.releaseDate}}</td>
+                <td>{{ movie.mpaa | uppercase}}</td>
+                <td>{{ movie.price | currency:'USD':true}}</td>
+                <td>{{ movie.starRating | number:'1.1-2'}}</td>
+                <td>{{ movie.approvalRating | percent: '1.0-0'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

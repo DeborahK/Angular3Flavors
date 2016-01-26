@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>InStep Movie Hunter</title>
+
+    <!-- Style sheets -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body ng-app="movieHunter">
+    <h1>Movie Hunter</h1>
+
+    <div>
+        <ng-include src="'app/movies/movieListView.html'"></ng-include>
+    </div>
+
+    <!-- Library Scripts -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+    <script src="node_modules/angular-mocks/angular-mocks.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="app/app.js"></script>
+    <script src="app/common/common.services.js"></script>
+    <script src="app/common/movieResource.js"></script>
+    <script src="app/common/movieResourceMock.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/movies/movieListCtrl.js"></script>
+</body>
+
+</html>
