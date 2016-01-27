@@ -20,17 +20,8 @@ System.register(['angular2/core'], function(exports_1) {
                 function MovieFilterPipe() {
                 }
                 MovieFilterPipe.prototype.transform = function (value, args) {
-                    var result = [];
                     var filter = args[0].toLocaleLowerCase();
-                    if (!filter) {
-                        return value;
-                    }
-                    value.forEach(function (movie) {
-                        if (movie.title.toLocaleLowerCase().indexOf(filter) > -1) {
-                            result.push(movie);
-                        }
-                    });
-                    return result;
+                    return filter ? value.filter(function (movie) { return movie.title.toLocaleLowerCase().indexOf(filter) != -1; }) : value;
                 };
                 MovieFilterPipe = __decorate([
                     core_1.Pipe({
