@@ -77,4 +77,8 @@ export class MovieListComponent {
     convertToDate(dateString): Date {
         return new Date(dateString);
     }
+    
+    checkMovieTitle(value: string): boolean {
+        return value.indexOf("Ring") > -1;
+    }
 }

@@ -83,6 +83,9 @@ System.register(['angular2/core', '../common/movieFilter.pipe'], function(export
                 MovieListComponent.prototype.convertToDate = function (dateString) {
                     return new Date(dateString);
                 };
+                MovieListComponent.prototype.checkMovieTitle = function (value) {
+                    return value.indexOf("Ring") > -1;
+                };
                 MovieListComponent = __decorate([
                     core_1.Component({
                         selector: 'mh-movie-list',

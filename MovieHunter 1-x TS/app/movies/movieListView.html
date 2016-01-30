@@ -38,7 +38,7 @@
                             <img ng-show="vm.showImage" style="width:50px;margin:2px"
                                  ng-src="{{movie.imageurl}}" title="{{movie.title}}">
                         </td>
-                        <td>{{ movie.title}}</td>
+                        <td ng-style="{color: 'blue'}">{{ movie.title}}</td>
                         <td>{{ movie.director }}</td>
                         <td>{{ movie.releaseDate | date }}</td>
                         <td>{{ movie.mpaa | uppercase}}</td>

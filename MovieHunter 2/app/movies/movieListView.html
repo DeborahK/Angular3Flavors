@@ -3,6 +3,12 @@
     <div class="col-md-2">Filter by:</div>
     <div class="col-md-4">
         <input type="text" #listFilter (keyup)="0" />
+
+        <div [ngSwitch]="listFilter.value && checkMovieTitle(listFilter.value)">
+            <template [ngSwitchWhen]="true">Excellent choice!</template>
+            <template [ngSwitchWhen]="false">Filtering...</template>
+            <template ngSwitchDefault>Consider entering a value to filter the list</template>
+        </div>
     </div>
 </div>
 
@@ -31,11 +37,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="#movie of movies | movieFilter:listFilter.value" >
+            <tr *ngFor="#movie of movies | movieFilter:listFilter.value">
                 <td>
                     <img [hidden]="!showImage || !movie.imageurl" style="width:50px;margin:2px" [src]="movie.imageurl" [title]="movie.title">
                 </td>
-                <td>{{ movie.title}}</td>
+                <td>{{ movie.title }}</td>
                 <td>{{ movie.director }}</td>
                 <td>{{ convertToDate(movie.releaseDate) | date}}</td>
                 <td>{{ movie.mpaa | uppercase}}</td>
