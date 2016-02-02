@@ -2,11 +2,12 @@
 <html>
 
 <head lang="en">
+    <base href="/">
     <meta charset="UTF-8">
     <title>InStep Movie Hunter</title>
 
-
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="app/app.style.css" rel="stylesheet" />
     <link href="app/movies/movies.json"></link>
     
     <!-- 1. Load libraries -->
@@ -21,6 +22,9 @@
     
     <!-- Required for http -->
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    
+    <!-- Required for routing -->
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
  
     <!-- 2. Configure SystemJS -->
     <script>

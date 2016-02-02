@@ -1,26 +1,43 @@
 import {Component}          from 'angular2/core';
 import {HTTP_PROVIDERS}     from 'angular2/http';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {MovieService}       from './movies/movie.service';
+import {WelcomeComponent}   from './welcome.component';
 import {MovieListComponent} from './movies/movie-list.component';
+import {MovieDetailComponent} from './movies/movie-detail.component';
 
 @Component({
     selector: 'mh-app',
     template: `
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h2 class="title">{{title}}</h2>
+    
+    <div class="panel panel-primary">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <a class="navbar-brand">{{title}}</a>
+                <ul class="nav navbar-nav">
+                    <li><a class="nav navbar-nav"
+                        [routerLink]="['Welcome']">Home</a></li>
+                    <li><a [routerLink]="['Movies']">Movie List</a></li>
+                </ul>
             </div>
-            <div class="panel-body"><mh-movie-list>Loading movies ... </mh-movie-list></div>
-         </div>
+        </nav>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+        </div>
          `,
-    styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css'], 
-    directives: [MovieListComponent],
-  providers: [
-    HTTP_PROVIDERS,
-    MovieService
-  ]
+    directives: [ROUTER_DIRECTIVES],
+    providers: [
+        HTTP_PROVIDERS,
+        MovieService
+    ]
 })
+@RouteConfig([
+    { path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true },
+    { path: '/movies', name: 'Movies', component: MovieListComponent },
+    { path: '/movie/:id', name: 'MovieDetail', component: MovieDetailComponent }
+])
 export class AppComponent {
-    public title: string = "Movie Hunter"
+    title: string = "InStep Movie Hunter"
 }

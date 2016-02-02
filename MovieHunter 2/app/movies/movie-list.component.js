@@ -25,6 +25,7 @@ System.register(['angular2/core', './movie.service', '../common/movieFilter.pipe
             MovieListComponent = (function () {
                 function MovieListComponent(_movieService) {
                     this._movieService = _movieService;
+                    this.pageTitle = "Movie List";
                     this.showImage = false;
                 }
                 MovieListComponent.prototype.ngOnInit = function () { this.getMovies(); };
@@ -43,7 +44,7 @@ System.register(['angular2/core', './movie.service', '../common/movieFilter.pipe
                     core_1.Component({
                         selector: 'mh-movie-list',
                         templateUrl: 'app/movies/movieListView.html',
-                        styleUrls: ['app/movies/movieStyle.css'],
+                        styleUrls: ['app/movies/movie.style.css'],
                         pipes: [movieFilter_pipe_1.MovieFilterPipe]
                     }), 
                     __metadata('design:paramtypes', [movie_service_1.MovieService])

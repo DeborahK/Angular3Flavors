@@ -7,14 +7,15 @@ import {MovieFilterPipe}    from '../common/movieFilter.pipe'
 @Component({
     selector: 'mh-movie-list',
     templateUrl: 'app/movies/movieListView.html',
-    styleUrls: ['app/movies/movieStyle.css'],
+    styleUrls: ['app/movies/movie.style.css'],
     pipes: [MovieFilterPipe]
 })
 export class MovieListComponent implements OnInit {
     showImage: boolean;
     movies: IMovie[];
     errorMessage: string;
-    
+    pageTitle: string = "Movie List"
+        
     constructor(private _movieService: MovieService) {
         this.showImage = false;
     }
