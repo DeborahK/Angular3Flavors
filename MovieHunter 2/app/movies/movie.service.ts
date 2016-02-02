@@ -12,6 +12,7 @@ export class MovieService {
   getMovies () {
     return this.http.get(this._moviesUrl)
                     .map(res => <IMovie[]> res.json())
+                    .do(data => console.log(data))
                     .catch(this.handleError);
   }
   
@@ -21,13 +22,4 @@ export class MovieService {
     console.error(error);
     return Observable.throw(error.json().error || 'Server error');
   }
-  
-// For debugging
-// Replace .map with .map(this.handleMap)
-//   private handleMap (res)
-//     {
-//         let data = <IMovie[]> res.json();
-//         console.log(data);
-//         return <IMovie[]> data;
-//     }
 }
