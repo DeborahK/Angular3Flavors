@@ -1,4 +1,7 @@
-import {Component} from 'angular2/core';
+import {Component}          from 'angular2/core';
+import {HTTP_PROVIDERS}     from 'angular2/http';
+
+import {MovieService}       from './movies/movie.service';
 import {MovieListComponent} from './movies/movie-list.component';
 
 @Component({
@@ -12,7 +15,11 @@ import {MovieListComponent} from './movies/movie-list.component';
          </div>
          `,
     styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css'], 
-    directives: [MovieListComponent]
+    directives: [MovieListComponent],
+  providers: [
+    HTTP_PROVIDERS,
+    MovieService
+  ]
 })
 export class AppComponent {
     public title: string = "Movie Hunter"

@@ -1,84 +1,38 @@
-import {Component} from 'angular2/core';
-import {MovieFilterPipe} from '../common/movieFilter.pipe'
+import {Component, OnInit}  from 'angular2/core';
 
-// Interface defining the properties and methods
-// that the controller class intents to provide
-// interface IMovieListModel {
-//     title: string;
-//     showImage: boolean;
-//     message: string;
-//     movies: app.domain.IMovie[];
-//     toggleImage(): void;
-// }
+import {IMovie}             from './movie'
+import {MovieService}       from './movie.service';
+import {MovieFilterPipe}    from '../common/movieFilter.pipe'
 
 @Component({
     selector: 'mh-movie-list',
     templateUrl: 'app/movies/movieListView.html',
-    styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css'],
+    styleUrls: ['app/movies/movieStyle.css'],
     pipes: [MovieFilterPipe]
 })
-export class MovieListComponent {
-    public showImage: boolean;
-    public movies: any[];
-    constructor() {
+export class MovieListComponent implements OnInit {
+    showImage: boolean;
+    movies: IMovie[];
+    errorMessage: string;
+    
+    constructor(private _movieService: MovieService) {
         this.showImage = false;
-        this.movies = [
-            {
-                director: "Peter Jackson",
-                imageurl: "http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Fellowship-Of-The-Ring_small.jpg",
-                movieId: 1,
-                mpaa: "pg-13",
-                releaseDate: "2001-12-19T00:00:00",
-                title: "The Lord of the Rings: The Fellowship of the Ring",
-                price: 12.95,
-                starRating: 4.925,
-                approvalRating: .97
-            },
-            {
-                director: "Peter Jackson",
-                imageurl: "http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Two-Towers_small.jpg",
-                movieId: 2,
-                mpaa: "pg-13",
-                releaseDate: "2002-12-18T00:00:00",
-                title: "The Lord of the Rings: The Two Towers",
-                price: 14.95,
-                starRating: 4.6,
-                approvalRating: .94
-            },
-            {
-                director: "Peter Jackson",
-                imageurl: "http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Return-Of-The-King_small.jpg",
-                movieId: 3,
-                mpaa: "pg-13",
-                releaseDate: "2003-12-17T00:00:00",
-                title: "The Lord of the Rings: The Return of the King",
-                price: 15.95,
-                starRating: 4.98,
-                approvalRating: .9995           },
-
-            {
-                director: "Fred Wolf",
-                imageurl: null,
-                movieId: 4,
-                mpaa: "nr",
-                releaseDate: "1971-02-02T00:00:00",
-                title: "The Point",
-                price: 9.95,
-                starRating: 4.5,
-                approvalRating: .9295
-            }
-        ];
     }
 
+    ngOnInit() {this.getMovies();}
+
+    getMovies() {
+           this._movieService.getMovies()
+                     .subscribe(
+                       movies => this.movies = movies,
+                       error =>  this.errorMessage = <any>error); 
+    }
+    
     toggleImage(): void {
         this.showImage = !this.showImage;
     }
 
     convertToDate(dateString): Date {
         return new Date(dateString);
-    }
-    
-    checkMovieTitle(value: string): boolean {
-        return value.indexOf("Ring") > -1;
     }
 }

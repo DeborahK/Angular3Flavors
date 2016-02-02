@@ -1,4 +1,4 @@
-System.register(['angular2/core', './movies/movie-list.component'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', './movies/movie.service', './movies/movie-list.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +8,18 @@ System.register(['angular2/core', './movies/movie-list.component'], function(exp
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, movie_list_component_1;
+    var core_1, http_1, movie_service_1, movie_list_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (movie_service_1_1) {
+                movie_service_1 = movie_service_1_1;
             },
             function (movie_list_component_1_1) {
                 movie_list_component_1 = movie_list_component_1_1;
@@ -28,7 +34,11 @@ System.register(['angular2/core', './movies/movie-list.component'], function(exp
                         selector: 'mh-app',
                         template: "\n        <div class=\"panel panel-primary\">\n            <div class=\"panel-heading\">\n                <h2 class=\"title\">{{title}}</h2>\n            </div>\n            <div class=\"panel-body\"><mh-movie-list>Loading movies ... </mh-movie-list></div>\n         </div>\n         ",
                         styleUrls: ['node_modules/bootstrap/dist/css/bootstrap.css'],
-                        directives: [movie_list_component_1.MovieListComponent]
+                        directives: [movie_list_component_1.MovieListComponent],
+                        providers: [
+                            http_1.HTTP_PROVIDERS,
+                            movie_service_1.MovieService
+                        ]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

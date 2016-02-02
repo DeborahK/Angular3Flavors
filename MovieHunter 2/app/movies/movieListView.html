@@ -3,12 +3,6 @@
     <div class="col-md-2">Filter by:</div>
     <div class="col-md-4">
         <input type="text" #listFilter (keyup)="0" />
-
-        <div [ngSwitch]="listFilter.value && checkMovieTitle(listFilter.value)">
-            <template [ngSwitchWhen]="true">Excellent choice!</template>
-            <template [ngSwitchWhen]="false">Filtering...</template>
-            <template ngSwitchDefault>Consider entering a value to filter the list</template>
-        </div>
     </div>
 </div>
 
@@ -16,12 +10,16 @@
     <h3>Movies filtered by: {{listFilter.value}}</h3>
 </div>
 
+<div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
+
 <div class="table-responsive">
-    <table class="table" *ngIf="movies.length">
+    <table class="table" *ngIf="movies && movies.length">
         <thead>
             <tr>
                 <td>
-                    <button type="button" class="btn btn-info" (click)="toggleImage()">
+                    <button type="button" 
+                            class="btn btn-info"
+                            (click)="toggleImage()">
                         {{showImage ? "Hide" : "Show"}} Poster
                     </button>
                 </td>
@@ -30,16 +28,17 @@
                 <td>Release Date</td>
                 <td>Rating</td>
                 <td>Price</td>
-                <td>Star rating
-                    <br/> (max 5)</td>
-                <td>Approval rating
-                    <br/> (max 100%)</td>
+                <td>Star rating<br/> (max 5)</td>
+                <td>Approval rating<br/> (max 100%)</td>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="#movie of movies | movieFilter:listFilter.value">
                 <td>
-                    <img [hidden]="!showImage || !movie.imageurl" style="width:50px;margin:2px" [src]="movie.imageurl" [title]="movie.title">
+                    <img [hidden]="!showImage || !movie.imageurl" 
+                         style="width:50px;margin:2px" 
+                         [src]="movie.imageurl" 
+                         [title]="movie.title">
                 </td>
                 <td>{{ movie.title }}</td>
                 <td>{{ movie.director }}</td>

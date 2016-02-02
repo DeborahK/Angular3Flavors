@@ -4,6 +4,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>InStep Movie Hunter</title>
+
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="app/movies/movies.json"></link>
     
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
@@ -14,10 +18,13 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-
+    
+    <!-- Required for http -->
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+ 
     <!-- 2. Configure SystemJS -->
     <script>
-      System.config({
+        System.config({
         packages: {        
           app: {
             format: 'register',
@@ -30,7 +37,8 @@
     </script>
 </head>
 
-  <body>
+<body>
     <mh-app>Loading App ...</mh-app>
-  </body>
+</body>
+
 </html>
