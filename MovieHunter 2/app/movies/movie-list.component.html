@@ -48,7 +48,7 @@
                         <td>{{ convertToDate(movie.releaseDate) | date}}</td>
                         <td>{{ movie.mpaa | uppercase}}</td>
                         <td>{{ movie.price | currency:'USD':true}}</td>
-                        <td>{{ movie.starRating | number:'1.1-2'}}</td>
+                        <td><star [rating]="movie.starRating"></star></td>
                         <td>{{ movie.approvalRating | percent: '1.0-0'}}</td>
                     </tr>
                 </tbody>

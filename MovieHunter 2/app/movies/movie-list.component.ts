@@ -4,11 +4,12 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {IMovie} from './movie'
 import {MovieService} from './movie.service';
 import {MovieFilterPipe} from '../common/movieFilter.pipe'
+import {StarComponent} from "../common/star.component";
 
 @Component({
     templateUrl: 'app/movies/movie-list.component.html',
     styleUrls: ['app/movies/movie.style.css'],
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, StarComponent],
     pipes: [MovieFilterPipe]
 })
 export class MovieListComponent implements OnInit {
