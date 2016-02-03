@@ -2,16 +2,15 @@ import {Component}          from 'angular2/core';
 import {HTTP_PROVIDERS}     from 'angular2/http';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {MovieService}       from './movies/movie.service';
 import {WelcomeComponent}   from './welcome.component';
 import {MovieListComponent} from './movies/movie-list.component';
 import {MovieDetailComponent} from './movies/movie-detail.component';
+import {MovieService}       from './movies/movie.service';
 
 @Component({
     selector: 'mh-app',
     template: `
-    
-    <div class="panel panel-primary">
+    <div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <a class="navbar-brand">{{title}}</a>
@@ -25,8 +24,8 @@ import {MovieDetailComponent} from './movies/movie-detail.component';
         <div class="container">
             <router-outlet></router-outlet>
         </div>
-        </div>
-         `,
+     </div>
+     `,
     directives: [ROUTER_DIRECTIVES],
     providers: [
         HTTP_PROVIDERS,

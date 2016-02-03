@@ -1,4 +1,4 @@
-System.register(['angular2/core', './movie.service', '../common/movieFilter.pipe'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './movie.service', '../common/movieFilter.pipe'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +8,15 @@ System.register(['angular2/core', './movie.service', '../common/movieFilter.pipe
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, movie_service_1, movieFilter_pipe_1;
+    var core_1, router_1, movie_service_1, movieFilter_pipe_1;
     var MovieListComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (movie_service_1_1) {
                 movie_service_1 = movie_service_1_1;
@@ -42,9 +45,9 @@ System.register(['angular2/core', './movie.service', '../common/movieFilter.pipe
                 };
                 MovieListComponent = __decorate([
                     core_1.Component({
-                        selector: 'mh-movie-list',
-                        templateUrl: 'app/movies/movieListView.html',
+                        templateUrl: 'app/movies/movie-list.component.html',
                         styleUrls: ['app/movies/movie.style.css'],
+                        directives: [router_1.ROUTER_DIRECTIVES],
                         pipes: [movieFilter_pipe_1.MovieFilterPipe]
                     }), 
                     __metadata('design:paramtypes', [movie_service_1.MovieService])

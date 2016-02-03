@@ -1,21 +1,22 @@
 import {Component, OnInit}  from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {IMovie}             from './movie'
-import {MovieService}       from './movie.service';
-import {MovieFilterPipe}    from '../common/movieFilter.pipe'
+import {IMovie} from './movie'
+import {MovieService} from './movie.service';
+import {MovieFilterPipe} from '../common/movieFilter.pipe'
 
 @Component({
-    selector: 'mh-movie-list',
-    templateUrl: 'app/movies/movieListView.html',
+    templateUrl: 'app/movies/movie-list.component.html',
     styleUrls: ['app/movies/movie.style.css'],
+    directives: [ROUTER_DIRECTIVES],
     pipes: [MovieFilterPipe]
 })
 export class MovieListComponent implements OnInit {
+    pageTitle: string = "Movie List";
     showImage: boolean;
     movies: IMovie[];
     errorMessage: string;
-    pageTitle: string = "Movie List"
-        
+
     constructor(private _movieService: MovieService) {
         this.showImage = false;
     }
