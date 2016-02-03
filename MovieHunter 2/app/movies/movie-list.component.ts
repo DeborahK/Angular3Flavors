@@ -3,23 +3,22 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {IMovie} from './movie'
 import {MovieService} from './movie.service';
-import {MovieFilterPipe} from '../common/movieFilter.pipe'
-import {StarComponent} from "../common/star.component";
+import {MovieFilterPipe} from './movieFilter.pipe'
+import {StarComponent} from "../shared/star.component";
 
 @Component({
     templateUrl: 'app/movies/movie-list.component.html',
-    styleUrls: ['app/movies/movie.style.css'],
+    styleUrls: ['app/movies/movie-list.component.css'],
     directives: [ROUTER_DIRECTIVES, StarComponent],
     pipes: [MovieFilterPipe]
 })
 export class MovieListComponent implements OnInit {
     pageTitle: string = "Movie List";
-    showImage: boolean;
+    showImage: boolean = false;
     movies: IMovie[];
     errorMessage: string;
 
     constructor(private _movieService: MovieService) {
-        this.showImage = false;
     }
 
     ngOnInit() {this.getMovies();}

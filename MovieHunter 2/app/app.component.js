@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router', './welcome.component', './movies/movie-list.component', './movies/movie-detail.component', './movies/movie.service'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/router', './home/welcome.component', './movies/movie-list.component', './movies/movie-detail.component', './movies/movie.service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

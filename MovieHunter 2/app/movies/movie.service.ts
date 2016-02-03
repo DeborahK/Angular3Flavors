@@ -5,19 +5,19 @@ import {IMovie}         from './movie'
 
 @Injectable()
 export class MovieService {
-    constructor(private http: Http) { }
+    constructor(private _http: Http) { }
 
     private _moviesUrl = 'app/movies/movies.json';
 
     getMovies() {
-        return this.http.get(this._moviesUrl)
+        return this._http.get(this._moviesUrl)
             .map(res => <IMovie[]> res.json())
             .do(data => console.log(data))
             .catch(this.handleError);
     }
 
     getMovie(id: number) {
-        return this.http.get(this._moviesUrl)
+        return this._http.get(this._moviesUrl)
             .map(res => this.handleMap(res, id))
             .do(data => console.log("Data" + data))
             .catch(this.handleError);

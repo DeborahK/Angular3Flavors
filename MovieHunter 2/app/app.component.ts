@@ -2,7 +2,7 @@ import {Component}          from 'angular2/core';
 import {HTTP_PROVIDERS}     from 'angular2/http';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {WelcomeComponent}   from './welcome.component';
+import {WelcomeComponent}   from './home/welcome.component';
 import {MovieListComponent} from './movies/movie-list.component';
 import {MovieDetailComponent} from './movies/movie-detail.component';
 import {MovieService}       from './movies/movie.service';

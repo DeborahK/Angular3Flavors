@@ -2,8 +2,8 @@ import {Component, Input, OnChanges } from 'angular2/core';
 
 @Component({
     selector: 'star',
-    templateUrl: 'app/common/star.component.html',
-    styleUrls: ['app/common/star.component.css']
+    templateUrl: 'app/shared/star.component.html',
+    styleUrls: ['app/shared/star.component.css']
 })
 export class StarComponent implements OnChanges {
     @Input() rating: number;
