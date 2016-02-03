@@ -18,7 +18,7 @@
         "releaseDate": "2002-12-18T00:00:00",
         "title": "The Lord of the Rings: The Two Towers",
         "price": 14.95,
-        "starRating": 4.6,
+        "starRating": 2.6,
         "approvalRating": 0.94
     },
     {
@@ -29,7 +29,7 @@
         "releaseDate": "2003-12-17T00:00:00",
         "title": "The Lord of the Rings: The Return of the King",
         "price": 15.95,
-        "starRating": 4.98,
+        "starRating": 1.98,
         "approvalRating": 0.9995
     },
     {
@@ -40,7 +40,7 @@
         "releaseDate": "1971-02-02T00:00:00",
         "title": "The Point",
         "price": 9.95,
-        "starRating": 4.5,
+        "starRating": 3.5,
         "approvalRating": 0.9295
     }
 ]

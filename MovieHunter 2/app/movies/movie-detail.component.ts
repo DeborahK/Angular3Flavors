@@ -3,11 +3,12 @@ import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {IMovie} from './movie'
 import {MovieService} from './movie.service';
+import {StarComponent} from "../common/star.component";
 
 @Component({
     templateUrl: 'app/movies/movie-detail.component.html',
     styleUrls: ['app/movies/movie.style.css'],
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, StarComponent]
 })
 export class MovieDetailComponent {
     pageTitle: string = "Movie Detail";
